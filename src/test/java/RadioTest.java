@@ -4,6 +4,14 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void test(){
+        Radio2 rad = new Radio2(3, 9, 5);
+        Assertions.assertEquals(3, rad.getMinStation());
+        Assertions.assertEquals(9, rad.getMaxStation());
+        Assertions.assertEquals(5, rad.getCurrentStation());
+    }
+
+    @Test
     public void nextStationTest() {
         Radio radio = new Radio();
         radio.setCurrentStation(5);
