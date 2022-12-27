@@ -6,6 +6,13 @@ public class Radio {
     public int maxVolume = 100;
     public int minVolume = 0;
 
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
 
     public int getCurrentStation() {
         return currentStation;
