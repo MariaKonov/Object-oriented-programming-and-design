@@ -6,12 +6,16 @@ public class Radio {
     public int maxVolume = 100;
     public int minVolume = 0;
 
-    public int getMinStation() {
-        return minStation;
+    public Radio(int minStation, int maxStation, int currentStation, int currentVolume, int minVolume, int maxVolume) {
+        this.minStation = minStation;
+        this.maxStation = maxStation;
+        this.currentStation = currentStation;
+        this.currentVolume = currentVolume;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
     }
 
-    public int getMaxStation() {
-        return maxStation;
+    public Radio() {
     }
 
     public int getCurrentStation() {
@@ -43,46 +47,30 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentStation < maxStation) {
-            currentStation++;
+        if (currentStation >= maxStation) {
+            setCurrentStation(minStation);
         } else {
-            currentStation = minStation;
+            setCurrentStation(currentStation + 1);
         }
     }
 
     public void prevStation() {
-        if (currentStation > minStation) {
-            currentStation--;
+        if (currentStation <= minStation) {
+            setCurrentStation(maxStation);
         } else {
-            currentStation = maxStation;
+            setCurrentStation(currentStation - 1);
         }
     }
 
     public void nextVolume() {
         if (currentVolume < maxVolume) {
-            currentVolume++;
-        } else {
-            currentVolume = minVolume;
+            setCurrentVolume(currentVolume + 1);
         }
     }
 
     public void prevVolume() {
         if (currentVolume > minVolume) {
-            currentVolume--;
-        } else {
-            currentVolume = maxVolume;
-        }
-    }
-
-    public void prevVolumeOverMin() {
-        if (currentVolume < maxVolume) {
-            currentVolume = minVolume;
-        }
-    }
-
-    public void nextVolumeOverMax() {
-        if (currentVolume > minVolume) {
-            currentVolume = maxVolume;
+            setCurrentVolume(currentVolume - 1);
         }
     }
 }
